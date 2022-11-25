@@ -479,7 +479,9 @@ void NimBLECharacteristic::notify(bool is_notification) {
                 NimBLEDevice::getServer()->clearIndicateWait(it.first);
             }
         } else {
-            ble_gattc_notify_custom(it.first, m_handle, om);
+            rc = ble_gattc_notify_custom(it.first, m_handle, om);
+	        if (rc != 0) // Lennart
+		        NIMBLE_LOGE(LOG_TAG, "NOTIFICATION PROBLEM %d", rc);
         }
     }
 
