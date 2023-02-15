@@ -95,6 +95,7 @@ public:
     void setAppearance(uint16_t appearance);
     void setName(const std::string &name);
     void setManufacturerData(const std::string &data);
+	void setManufacturerData(const uint8_t* data, const uint8_t len);
     void setURI(const std::string &uri);
     void setServiceData(const NimBLEUUID &uuid, const std::string &data);
     void setAdvertisementType(uint8_t adv_type);

@@ -155,6 +155,19 @@ void NimBLEAdvertising::setManufacturerData(const std::string &data) {
     m_advDataSet = false;
 } // setManufacturerData
 
+/**
+ * @brief Set the advertised manufacturer data.
+ * @param [in] data The manufacturer id.
+ * @param [in] len The length of data in bytes
+ */
+void NimBLEAdvertising::setManufacturerData(const uint8_t* data, const uint8_t len)
+{
+	m_mfgData.assign(&data[0], &data[len]);
+	m_advData.mfg_data = &m_mfgData[0];
+	m_advData.mfg_data_len = m_mfgData.size();
+	m_advDataSet = false;
+}
+
 
 /**
  * @brief Set the advertised URI.
